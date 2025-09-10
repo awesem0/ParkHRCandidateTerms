@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Candidate Terms Park HR</title>
+    <style>
+        body {
+            font-family: "Playfair Display", serif;
+            font-size: 11pt;
+            color: #726f6a;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.5;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header a {
+            text-decoration: none;
+        }
+        .header a img {
+            max-width: 200px;
+            cursor: pointer;
+        }
+        h1 {
+            font-size: 20pt;
+            font-weight: bold;
+            color: #8118b6; /* Purple for title */
+            margin-bottom: 30px;
+        }
+        h2 {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #00bbf9; /* Light blue for main headings */
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        h3 {
+            font-size: 12pt;
+            font-weight: bold;
+            color: #00bbf9; /* Light blue for subheadings */
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .terms {
+            margin-bottom: 30px;
+        }
+        .terms p {
+            margin: 10px 0;
+        }
+        .terms ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        .terms ul ul {
+            list-style-type: circle;
+        }
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+            color: #000000; /* Black for labels */
+        }
+        input[type="text"], input[type="date"] {
+            width: 100%;
+            padding: 10px 30px 10px 10px; /* Padding for calendar icon on right */
+            font-family: "Playfair Display", serif;
+            font-size: 11pt;
+            border-bottom: 1px solid #000000;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            margin-bottom: 15px;
+            background-color: transparent;
+            color: #000000; /* Black for input text */
+            cursor: pointer;
+            position: relative;
+        }
+        /* Adjust font size for mobile date inputs */
+        @media (max-width: 600px) {
+            input[type="date"] {
+                font-size: 10pt; /* Smaller font for better readability on mobile */
+            }
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            position: absolute;
+            right: 5px; /* Move icon to far right */
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            opacity: 1; /* Ensure icon is visible */
+            cursor: pointer;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>') no-repeat center;
+            background-size: contain;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator:hover {
+            background-color: #f0f0f0; /* Slight hover effect */
+        }
+        .signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 14pt;
+            font-weight: bold; /* Bold */
+            font-style: italic; /* Italics */
+        }
+        button {
+            background-color: #8118b6; /* Purple to match theme */
+            color: #ffffff;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            font-family: "Playfair Display", serif;
+            font-size: 11pt;
+            position: relative;
+        }
+        button:hover {
+            background-color: #5a0c7f;
+        }
+        .footer {
+            font-size: 9pt;
+            color: #726f6a;
+            text-align: center;
+            margin-top: 40px; /* Increased space above footer */
+        }
+        .footer a {
+            color: #726f6a;
+            text-decoration: underline;
+        }
+        .footer a:hover {
+            color: #00bbf9;
+        }
+        hr {
+            border: 0;
+            border-top: 2px solid #000000; /* Thicker break line */
+            width: 100%;
+            margin: 30px 0; /* Wider spacing around break line */
+        }
+        .loading {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #8118b6;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        .message {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            color: #000000;
+        }
+        .success {
+            background-color: #d4edda;
+        }
+        .error {
+            background-color: #f8d7da;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <a href="http://www.parkhr.co.uk" target="_blank">
+            <img src="https://drive.google.com/thumbnail?id=1wS-sM4HTmYQOUUHOaX4S67COFc3i4r78&sz=w1000" alt="Park HR Logo">
+        </a>
+    </div>
+    <h1>Park HR Recruitment Ltd Candidate Terms 2025</h1>
+    <div class="terms">
+        <h2>WHEREAS</h2>
+        <p>A We are in the business of providing services to locate work for Candidates registered on our Candidate Database and introducing Candidates to our Clients with a view to Employment by a Client.</p>
+        <p>B You are seeking work, have provided us with your details to be registered on our Candidate Database, and have asked us to locate work for you.</p>
+        <p>C We are prepared to provide work-finding services on the Terms and Conditions, which you wish to accept.</p>
+        <h2>NOW IT IS AGREED</h2>
+        <p>In consideration of the mutual obligations set out in the Terms and Conditions below, we shall provide the Services and you accept the Services on the Terms and Conditions which you acknowledge you have fully read and understood.</p>
+        <p>By accepting or requesting any services or using information from Park HR you accept and are deemed to accept these Terms of Business, which apply to all dealings between us relating to the business described in the terms.</p>
+        <h2>TERMS AND CONDITIONS</h2>
+        <h3>Work-finding service</h3>
+        <p style="color: #726f6a;">1/We shall provide a work-finding service to you, which we agree to provide free of charge, as follows:</p>
+        <ul>
+            <li>(a) we may whilst your details are registered on the Candidate Database from time to time and at our sole discretion search for opportunities for you to become employed by a Client who requires work of the type and nature set out in the Work Types and when we consider we have found an opportunity that may be suitable we may inform you of this opportunity</li>
+            <li>(b) we may, where appropriate in each case, arrange an interview for you to meet a Client and assist in concluding any negotiations but we offer no guarantee that an opportunity we inform you of will be capable of being progressed</li>
+            <li>(c) should a Client wish to employ you for any work not within the Work Types, or there is an opportunity for temporary work of any kind, we may inform you of such opportunity and the terms proposed</li>
+            <li>(d) in providing the service set out in this clause 1/we are operating as an Employment Agency</li>
+            <li>(e) You consent to Park HR holding & using the information you provide for the purposes of trying to find you a position or role</li>
+        </ul>
+        <h3>Other Services</h3>
+        <p>2 If we offer any other service in respect of which Special Terms are set out we shall provide that service in good faith and shall comply with our obligations as set out in the Special Terms.</p>
+        <h3>Your Obligations</h3>
+        <p>3 In consideration of our agreement to maintain your registration on our Candidate Database and to provide a work-finding service as set out in clause 1 you</p>
+        <ul>
+            <li>(a) shall provide us with a full and accurate curriculum vitae if you have not already done so, and, if we shall request it, proper evidence of your entitlement to work in the United Kingdom and any qualifications or certificates that are referred to in your curriculum vitae or otherwise disclosed by you</li>
+            <li>(b) shall provide us with any information relevant to the decision of a Client to engage you including information that may result in the best interests of a Client being affected in any way, whether relating to your health or ability to perform work efficiently or otherwise (including charges for criminal offences and undischarged criminal convictions), together with details of any periods of sickness you may have taken during the year preceding the date of this agreement and whether such sickness or any matter relating to it may in your proper opinion be likely to reoccur</li>
+            <li>(c) consent to our use of all information and documents we obtain, either from you or from any other party relating to you, for the purpose of locating work for you, including the provision of such information and documentation to a Client, but you may withdraw this consent by notice in writing to us at any time and thereafter we shall only provide such information and documents where required by law</li>
+            <li>(d) agree that clause 4(c) shall apply to information received by us both before and after commencement of your Employment with a Client</li>
+            <li>(e) shall keep us updated with any information we reasonably request whilst we maintain your registration on our Candidate Database, at all times act in good faith towards us and a Client, and advise us if you wish your registration on our Candidate Database to be removed</li>
+            <li>(f) agree that if we should provide you with information containing details of a Client you will inform us promptly if, within 12 months of the provision of that information, you take up Employment, either directly or indirectly, with such Client, or any person connected with the Client, together with details of the Employment (although there is no obligation to disclose the identity of the Client).</li>
+        </ul>
+        <h3>Your Warranties</h3>
+        <p>4 You warrant that</p>
+        <ul>
+            <li>(a) any curriculum vitae and  information you provide under clauses 3(a), (b) and (e) is full and accurate in all material respects and that, unless you have already informed us otherwise, you are authorised to provide work services in the United Kingdom and, where appropriate, hold a valid work permit</li>
+            <li>(b) if you have provided us with names of any person from whom we may seek a reference on your behalf, that such person is not a Relative, unless you have otherwise informed us in writing</li>
+            <li>(c) you recognise
+                <ul>
+                    <li>(i) that a Client may withdraw an opportunity at any time before you have formally agreed to become employed by such Client</li>
+                    <li>(ii) whilst we shall endeavour to obtain accurate information from a Client whether as to a role or the nature of the work or otherwise we accept no liability for information we have passed to you in good faith and cannot guarantee the accuracy of such information.</li>
+                </ul>
+            </li>
+        </ul>
+        <h3>General</h3>
+        <p>5 It is further agreed that</p>
+        <ul>
+            <li>(a) whilst we shall at all times act in good faith, we may remove your registration from our Candidate Database at any time, and we have no obligation to provide you with information or any service other than as specifically, and to the extent, stated in this agreement or required by law</li>
+            <li>(b) we do not guarantee that any work will be found and we do not accept any liability if we do not locate any such work for you, nor do we guarantee that any work found will be suitable for you</li>
+            <li>(c) we shall not be liable for any loss or damages
+                <ul>
+                    <li>(i) arising out of any representation made by a Client to you, or by us to you deriving from inaccurate information provided by a Client to us</li>
+                    <li>(ii) for any action tort or breach of contract by a Client</li>
+                    <li>(iii)if work found for you is not suitable</li>
+                    <li>(iv) for any failure by us to provide any information or service save to the extent strictly required by law</li>
+                </ul>
+            </li>
+            <li>(d) each portion of this agreement, defined by punctuation, and paragraphs, is separate, distinct and severable and to give meaning to the intention of you and us the Court may modify any portion of this agreement that may otherwise be void; subject thereto any void portion may be severed, and the remaining provisions, including any such modified hereunder, shall continue in force</li>
+            <li>(e) this agreement will continue until terminated on one week's written notice by one party to the other</li>
+            <li>(f) this agreement is the sole agreement between you and us, supersedes any previous agreement between you and us relating to our services, and may not be varied save by agreement of both you and us (whether orally or otherwise) and confirmed in writing by us and signed by our authorised officer</li>
+            <li>(g) the Laws of England govern this Agreement and the English Courts have sole jurisdiction.</li>
+        </ul>
+        <h3>Definitions</h3>
+        <p>Agency Work - work under which you are, or are proposed to be, employed under a contract direct with a Client</p>
+        <p>Candidate - a person seeking to use our services for locating work</p>
+        <p>Candidate Database - our register of Candidates, which may include your personal details</p>
+        <p>Client - a client of ours, including any third party with whom we have a relationship of any kind as a client, or potential client. who may be interested in employing you, or does employ you, or who may wish to utilise your services in any way</p>
+        <p>Employment - for the purposes of this agreement only, an engagement under a contract of service or contract for services and "employ", "employing" and "employed" shall have commensurate meaning</p>
+        <p>Park HR  - means a company which is a holding company, subsidiary or associate of Park HR Recruitment Ltd</p>
+        <p>Regulations - the Conduct of Employment Agencies and Employment Businesses Regulations 2003</p>
+        <p>Relative - someone related to you, your spouse (including by definition a live in partner) or former spouse, being (a) father, mother, stepfather, stepmother, son, daughter, stepson, stepdaughter, grandmother, grandfather, grandson or granddaughter, (b) brother, sister, uncle, aunt, niece or nephew (whether of the full blood or of the half blood or by affinity)</p>
+        <p>Services - our services as set out in the Terms and Conditions</p>
+        <p>Special Terms - those terms, if any, set out in Schedule 1</p>
+        <p>Terms and Conditions - the terms and conditions overleaf which are subject to the definitions</p>
+        <p>Work Types - the types of work we will seek to find for you</p>
+        <h3>Information to be provided by candidates</h3>
+        <ul>
+            <li>Curriculum vitae</li>
+            <li>Details of references</li>
+            <li>Document to confirm identity (passport/driving licence/domestic bill etc)</li>
+            <li>Confirmation of qualifications gained</li>
+            <li>Confirmation of professional memberships</li>
+            <li>Details of any requirements of law or professional bodies that are required for work</li>
+            <li>Any other relevant information</li>
+        </ul>
+        <h3>Privacy, data, and your rights</h3>
+        <ul>
+            <li>Your personal data will be kept securely and confidentially.</li>
+            <li>You agree to update us by email if your personal information changes.</li>
+            <li>You have the right to request to see exactly what information and data we hold on our database.</li>
+            <li>You have the right to request us to remove and delete your personal information from our database at any time.</li>
+            <li>Your data will be held on our database for up to 18 months or until you request it to be removed.</li>
+        </ul>
+    </div>
+    <form id="candidateTermsForm" onsubmit="handleSubmit(event)">
+        <p>Please sign below to accept these terms</p>
+        <label for="candidateFullName">Candidate Full Name</label>
+        <input type="text" id="candidateFullName" name="candidateFullName" required>
+        <label for="candidateSignature">Candidate Signature</label>
+        <input type="text" id="candidateSignature" name="candidateSignature" class="signature" required>
+        <label for="candidateDate">Date</label>
+        <input type="date" id="candidateDate" name="candidateDate" value="2025-09-10">
+        <hr>
+        <label for="consultantFullName">Consultant Full Name</label>
+        <input type="text" id="consultantFullName" name="consultantFullName" value="Richard Park" required readonly>
+        <label for="consultantSignature">Consultant Signature</label>
+        <input type="text" id="consultantSignature" name="consultantSignature" class="signature" value="Richard Park" required readonly>
+        <label for="consultantDate">Date</label>
+        <input type="date" id="consultantDate" name="consultantDate" value="2025-09-10">
+        <div class="footer">
+            <p>PARK HR RECRUITMENT LTD</p>
+            <p>Tel 01590 615 944</p>
+            <p><a href="http://www.parkhr.co.uk" target="_blank">www.parkhr.co.uk</a></p>
+            <p>Company Reg No: 11116578</p>
+        </div>
+        <button type="submit">Submit
+            <span class="loading" id="loading"></span>
+        </button>
+        <div id="message" class="message"></div>
+    </form>
+    <script>
+        // Preload current date
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+            const yyyy = today.getFullYear();
+            const formattedDate = yyyy + '-' + mm + '-' + dd; // ISO format for date input
+
+            document.getElementById('candidateDate').value = formattedDate;
+            document.getElementById('consultantDate').value = formattedDate;
+        });
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const loading = document.getElementById('loading');
+            const message = document.getElementById('message');
+            loading.style.display = 'inline-block'; // Show loading spinner
+            message.style.display = 'none'; // Hide previous message
+
+            if (typeof google === 'undefined' || !google.script || !google.script.run) {
+                loading.style.display = 'none';
+                message.textContent = 'Error: Google Apps Script API is not available. Please use the web app URL directly: https://script.google.com/macros/s/AKfycbyqolu6jIev8VgOH9wIYt6-KzV120aNY7xKG9iKdbSDazpS7M3KGVTkxgV887bzOV8l1Q/exec';
+                message.className = 'message error';
+                message.style.display = 'block';
+                console.error('Google Apps Script not loaded');
+                return;
+            }
+
+            const formData = new FormData(form);
+            const data = {
+                candidateFullName: formData.get('candidateFullName'),
+                candidateSignature: formData.get('candidateSignature'),
+                candidateDate: formData.get('candidateDate'),
+                consultantFullName: formData.get('consultantFullName'),
+                consultantSignature: formData.get('consultantSignature'),
+                consultantDate: formData.get('consultantDate')
+            };
+
+            google.script.run
+                .withSuccessHandler(() => {
+                    loading.style.display = 'none';
+                    message.textContent = 'We have received the signed document';
+                    message.className = 'message success';
+                    message.style.display = 'block';
+                })
+                .withFailureHandler((error) => {
+                    loading.style.display = 'none';
+                    message.textContent = 'Error submitting form: ' + error.message;
+                    message.className = 'message error';
+                    message.style.display = 'block';
+                })
+                .submitForm(data);
+        }
+    </script>
+</body>
+</html>
