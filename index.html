@@ -209,7 +209,7 @@
         <h3>Your Warranties</h3>
         <p>4 You warrant that</p>
         <ul>
-            <li>(a) any curriculum vitae and  information you provide under clauses 3(a), (b) and (e) is full and accurate in all material respects and that, unless you have already informed us otherwise, you are authorised to provide work services in the United Kingdom and, where appropriate, hold a valid work permit</li>
+            <li>(a) any curriculum vitae and information you provide under clauses 3(a), (b) and (e) is full and accurate in all material respects and that, unless you have already informed us otherwise, you are authorised to provide work services in the United Kingdom and, where appropriate, hold a valid work permit</li>
             <li>(b) if you have provided us with names of any person from whom we may seek a reference on your behalf, that such person is not a Relative, unless you have otherwise informed us in writing</li>
             <li>(c) you recognise
                 <ul>
@@ -242,7 +242,7 @@
         <p>Candidate Database - our register of Candidates, which may include your personal details</p>
         <p>Client - a client of ours, including any third party with whom we have a relationship of any kind as a client, or potential client. who may be interested in employing you, or does employ you, or who may wish to utilise your services in any way</p>
         <p>Employment - for the purposes of this agreement only, an engagement under a contract of service or contract for services and "employ", "employing" and "employed" shall have commensurate meaning</p>
-        <p>Park HR  - means a company which is a holding company, subsidiary or associate of Park HR Recruitment Ltd</p>
+        <p>Park HR - means a company which is a holding company, subsidiary or associate of Park HR Recruitment Ltd</p>
         <p>Regulations - the Conduct of Employment Agencies and Employment Businesses Regulations 2003</p>
         <p>Relative - someone related to you, your spouse (including by definition a live in partner) or former spouse, being (a) father, mother, stepfather, stepmother, son, daughter, stepson, stepdaughter, grandmother, grandfather, grandson or granddaughter, (b) brother, sister, uncle, aunt, niece or nephew (whether of the full blood or of the half blood or by affinity)</p>
         <p>Services - our services as set out in the Terms and Conditions</p>
@@ -302,28 +302,16 @@
             const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
             const yyyy = today.getFullYear();
             const formattedDate = yyyy + '-' + mm + '-' + dd; // ISO format for date input
-
             document.getElementById('candidateDate').value = formattedDate;
             document.getElementById('consultantDate').value = formattedDate;
         });
-
         function handleSubmit(event) {
             event.preventDefault();
             const form = event.target;
             const loading = document.getElementById('loading');
             const message = document.getElementById('message');
-            loading.style.display = 'inline-block'; // Show loading spinner
-            message.style.display = 'none'; // Hide previous message
-
-            if (typeof google === 'undefined' || !google.script || !google.script.run) {
-                loading.style.display = 'none';
-                message.textContent = 'Error: Google Apps Script API is not available. Please use the web app URL directly: https://script.google.com/macros/s/AKfycbw8oWqHyXzBq1sFHTg3AeRGycMFtBlYoSIxCBK-bcWXIUbA3HgmStji_mC0GD8xk3-mlw/exec';
-                message.className = 'message error';
-                message.style.display = 'block';
-                console.error('Google Apps Script not loaded');
-                return;
-            }
-
+            loading.style.display = 'inline-block';
+            message.style.display = 'none';
             const formData = new FormData(form);
             const data = {
                 candidateFullName: formData.get('candidateFullName'),
@@ -333,21 +321,29 @@
                 consultantSignature: formData.get('consultantSignature'),
                 consultantDate: formData.get('consultantDate')
             };
-
-            google.script.run
-                .withSuccessHandler(() => {
-                    loading.style.display = 'none';
+            fetch('https://script.google.com/macros/s/AKfycbx4Ji06GpXtHKGXY5SD_5nrAh4HExzHzlH1MdnQioNiOvtqzjq02P7_GOQTdljkqc2Mpw/exec', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: { 'Content-Type': 'application/json' }
+            })
+            .then(response => response.json())
+            .then(result => {
+                loading.style.display = 'none';
+                if (result.ok) {
                     message.textContent = 'We have received the signed document';
                     message.className = 'message success';
-                    message.style.display = 'block';
-                })
-                .withFailureHandler((error) => {
-                    loading.style.display = 'none';
-                    message.textContent = 'Error submitting form: ' + error.message;
+                } else {
+                    message.textContent = 'Error: ' + (result.error || 'Submission failed');
                     message.className = 'message error';
-                    message.style.display = 'block';
-                })
-                .submitForm(data);
+                }
+                message.style.display = 'block';
+            })
+            .catch(error => {
+                loading.style.display = 'none';
+                message.textContent = 'Error submitting form: ' + error.message;
+                message.className = 'message error';
+                message.style.display = 'block';
+            });
         }
     </script>
 </body>
